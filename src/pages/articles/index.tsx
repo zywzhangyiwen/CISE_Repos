@@ -1,7 +1,9 @@
 import { GetStaticProps, NextPage } from "next";
 import SortableTable from "../../components/table/SortableTable";
 import data from "../../utils/dummydata";
+import styles from "./Articles.module.scss"; // 需要创建这个样式文件
 
+// 扩展接口以包含状态字段
 interface ArticlesInterface {
   id: string;
   title: string;
@@ -11,6 +13,8 @@ interface ArticlesInterface {
   doi: string;
   claim: string;
   evidence: string;
+  moderationStatus?: string; // 添加可选的审核状态字段
+  analysisStatus?: string;   // 添加可选的分析状态字段
 }
 
 type ArticlesProps = {
@@ -26,6 +30,8 @@ const Articles: NextPage<ArticlesProps> = ({ articles }) => {
     { key: "doi", label: "DOI" },
     { key: "claim", label: "Claim" },
     { key: "evidence", label: "Evidence" },
+    { key: "moderationStatus", label: "Moderation Status" }, // 添加审核状态列
+    { key: "analysisStatus", label: "Analysis Status" },     // 添加分析状态列
   ];
 
   return (
@@ -48,6 +54,8 @@ export const getStaticProps: GetStaticProps<ArticlesProps> = async (_) => {
     doi: article.doi,
     claim: article.claim,
     evidence: article.evidence,
+    moderationStatus: article.moderationStatus || "pending", // 添加默认审核状态
+    analysisStatus: article.analysisStatus || "not-analyzed", // 添加默认分析状态
   }));
 
   return {

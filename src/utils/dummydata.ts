@@ -8,6 +8,9 @@ const data = [
     doi: "https://doi.org/10.1145/2601248.2601267",
     claim: "code quality improvement",
     evidence: "strong support",
+    moderationStatus: "approved", 
+    analysisStatus: "analyzed",   
+    submittedDate: "2024-03-15",  
   },
   {
     _id: "2",
@@ -18,6 +21,9 @@ const data = [
     doi: "https://doi.org/10.1145/2601248.2601267",
     claim: "product quality improvement",
     evidence: "weak support",
+    moderationStatus: "pending",  
+    analysisStatus: "not-analyzed", 
+    submittedDate: "2024-03-16",
   },
   {
     _id: "3",
@@ -28,6 +34,9 @@ const data = [
     doi: "https://doi.org/10.1007/s10664-008-9062-z",
     claim: "product quality improvement",
     evidence: "weak support",
+     moderationStatus: "rejected", // 已拒绝
+    analysisStatus: "not-analyzed",
+    submittedDate: "2024-03-17",
   },
   {
     _id: "4",
@@ -38,6 +47,7 @@ const data = [
     doi: "",
     claim: "code quality improvement",
     evidence: "strong support",
+
   },
   {
     _id: "5",
